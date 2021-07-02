@@ -1,8 +1,8 @@
 import yaml
 from selenium import webdriver
 
-from testpo.base_page import BasePage
-from testpo.conttant_page import ContantPage
+from testpo20210627.po.base_page import BasePage
+from testpo20210627.po.conttant_page import ContantPage
 
 
 class HomePage(BasePage):

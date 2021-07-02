@@ -1,7 +1,6 @@
 from selenium.webdriver.remote.webelement import WebElement
-
-from testpo.add_part_page import AddPartPage
-from testpo.base_page import BasePage
+from testpo20210627.po.add_part_page import AddPartPage
+from testpo20210627.po.base_page import BasePage
 
 
 class ContantPage(BasePage):

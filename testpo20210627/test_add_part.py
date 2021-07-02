@@ -1,8 +1,8 @@
 import pytest
 import time
 
-from testpo.conttant_page import ContantPage
-from testpo.home_page import HomePage
+from testpo20210627.po.conttant_page import ContantPage
+from testpo20210627.po.home_page import HomePage
 
 
 class TestAddPart:
