@@ -81,7 +81,7 @@
   secure: false
   value: GA1.2.453394524.1625054834
 - domain: .work.weixin.qq.com
-  expiry: 1627783277
+  expiry: 1627783919
   httpOnly: false
   name: wwrtx.i18n_lan
   path: /
