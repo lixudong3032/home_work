@@ -3,40 +3,52 @@ from  appium import webdriver
 # @Author : lixudong
 # @Email : lixudong@zsyjr.com
 # @File : base_page.py
+import logging
 from appium.webdriver.common.mobileby import MobileBy
+from appium.webdriver.webdriver import WebDriver
 from selenium.common.exceptions import NoSuchElementException
 
-
 class BasePage:
+    def __init__(self, driver: WebDriver = None):
+        self.driver = driver
 
-    def __init__(self,wb=None):
-        if wb==None:
-            desired_caps = {}
-            desired_caps['platformName'] = 'Android'
-            desired_caps['platformVersion'] = '6.0'
-            desired_caps['deviceName'] = '127.0.0.1:7555'
-            desired_caps['appPackage'] = 'com.tencent.wework'
-            desired_caps['appActivity'] = '.launch.WwMainActivity'
-            desired_caps['skipServerInstallation'] = 'true'
-            desired_caps['skipDeviceInitialization'] = 'true'
-            desired_caps['dontStopAppOnReset'] = 'true'  #不关闭应用
-            desired_caps['autoGrantPermissions'] = 'true' #自动获取权限
-            ##不清除会话记录
-            desired_caps['noReset'] = 'true'
-            self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
-            self.driver.implicitly_wait(20)
-        else:
-            self.driver=wb
+    def log_info(self, message):
+        logging.info(message)
+
+    def find(self, by, value):
+        self.log_info('find')
+        self.log_info(by)
+        self.log_info(value)
+        # 查找元素
+        return self.driver.find_element(by, value)
+
+    def finds(self, by, value):
+        self.log_info('finds')
+        self.log_info(by)
+        self.log_info(value)
+        # 查找多个元素
+        return self.driver.find_elements(by, value)
 
 
-    def swipe_find(self, text, num=5):
+    def find_and_click(self, by, value):
+        self.log_info('find_and_click')
+        # 查找元素之后完成点击操作
+        self.find(by, value).click()
+
+    def find_and_sendkeys(self, by, value, text):
+        self.log_info('find_and_sendkeys')
+
+        # 查找元素之后完成点击操作
+        self.find(by, value).send_keys(text)
+
+    def swipe_find(self, text, num=3):
         self.log_info('swipe_find')
         '''
         1、添加查找次数
         2、添加 查找文本 的输入参数
         3、添加隐式等待的动态设置
         :param text:
-        :param num: 默认为3
+        :param num:
         :return:
         '''
         # 滑动查找元素
@@ -46,7 +58,7 @@ class BasePage:
             try:
 
                 element = self.driver.find_element(MobileBy.XPATH, f"//*[@text='{text}']")
-                self.driver.implicitly_wait(20)
+                self.driver.implicitly_wait(5)
                 return element
             except:
                 print("未找到")
@@ -63,5 +75,13 @@ class BasePage:
                 self.driver.swipe(start_x, start_y, end_x, end_y, duration)
 
             if i == num - 1:
-                self.driver.implicitly_wait(20)
+                self.driver.implicitly_wait(5)
                 raise NoSuchElementException(f"找了 {i} 次，未找到")
+
+    def get_toast_text(self):
+        result = self.driver.find_element(MobileBy.XPATH, "//*[@class='android.widget.Toast']").get_attribute('text')
+        return result
+
+    def back(self, num=3):
+        for i in range(num):
+            self.driver.back()

@@ -2,6 +2,8 @@
 # @Author : lixudong
 # @Email : lixudong@zsyjr.com
 # @File : home_page.py
+from appium.webdriver.common.mobileby import MobileBy
+
 from testappniumpo20210704.po.base_page import BasePage
 class AddMemPage(BasePage):
     def add_contant_info(self, name, mobile):
@@ -10,10 +12,10 @@ class AddMemPage(BasePage):
         :param mobile: 添加的手机号码
         :return: 返回联系人界面
         """
-        self.driver.find_element_by_xpath("//*[@text='姓名　']/../android.widget.EditText").send_keys(name)
-        self.driver.find_element_by_xpath("//*[@text='手机号']").send_keys(mobile)
-        self.driver.find_element_by_xpath("//*[@text='性别']/../android.widget.RelativeLayout").click()
-        self.driver.find_element_by_xpath("//*[@resource-id='android:id/content']//android.widget.TextView[@text='女']/../../../*").click()
-        self.driver.find_element_by_xpath("//*[@text='保存']").click()
+        self.find_and_sendkeys(MobileBy.XPATH,"//*[@text='姓名　']/../android.widget.EditText",name)
+        self.find_and_sendkeys(MobileBy.XPATH,"//*[@text='手机号']/../android.widget.EditText",mobile)
+        self.find_and_click(MobileBy.XPATH,"//*[@text='性别']/../android.widget.RelativeLayout")
+        self.find_and_click(MobileBy.XPATH,"//*[@resource-id='android:id/content']//android.widget.TextView[@text='女']/../../../*")
+        self.find_and_click(MobileBy.XPATH,"//*[@text='保存']")
         from testappniumpo20210704.po.contant_page import ContantPage
         return ContantPage(self.driver)
