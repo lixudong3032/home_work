@@ -1,6 +1,5 @@
 # @Time : 2021/7/8 10:59
-# @Author : lixudong
-# @Email : lixudong@zsyjr.com
+# @Author : lixu
 # @File : app.py
 from appium import webdriver
 
