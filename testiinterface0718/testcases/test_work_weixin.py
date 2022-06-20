@@ -1,6 +1,5 @@
 # @Time : 2021/7/19 18:37
 # @Author : lixudong
-# @Email : lixudong@zsyjr.com
 # @File : test_work_weixin.py
 import pytest
 from faker import Faker
