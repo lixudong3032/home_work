@@ -1,6 +1,5 @@
 # @Time : 2021/8/2 18:49
 # @Author : lixudong
-# @Email : lixudong@zsyjr.com
 # @File : setup.py.py
 
 
