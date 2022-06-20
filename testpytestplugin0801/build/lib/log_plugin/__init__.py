@@ -1,6 +1,5 @@
 # @Time : 2021/8/2 18:54
 # @Author : lixudong
-# @Email : lixudong@zsyjr.com
 # @File : __init__.py.py
 import logging
 import os
