@@ -1,7 +1,5 @@
 #coding=utf-8
 # @Time : 2021/7/19 18:39
-# @Author : lixudong
-# @Email : lixudong@zsyjr.com
 # @File : work_weixin_api.py
 import json
 
