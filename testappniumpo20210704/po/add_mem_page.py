@@ -1,6 +1,5 @@
 # @Time : 2021/7/6 14:38
 # @Author : lixudong
-# @Email : lixudong@zsyjr.com
 # @File : home_page.py
 from appium.webdriver.common.mobileby import MobileBy
 
