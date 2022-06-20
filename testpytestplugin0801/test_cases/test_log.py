@@ -1,6 +1,4 @@
 # @Time : 2021/8/2 19:00
-# @Author : lixudong
-# @Email : lixudong@zsyjr.com
 # @File : test_log.py
 import logging
 
