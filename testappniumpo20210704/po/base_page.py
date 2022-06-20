@@ -1,7 +1,6 @@
 from  appium import webdriver
 # @Time : 2021/7/6 19:31
-# @Author : lixudong
-# @Email : lixudong@zsyjr.com
+# @Author : lixudo
 # @File : base_page.py
 import logging
 from appium.webdriver.common.mobileby import MobileBy
