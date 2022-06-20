@@ -1,6 +1,6 @@
 # @Time : 2021/7/6 14:38
 # @Author : lixudong
-# @File : home_page.py
+# @File : home_page.
 from appium.webdriver.common.mobileby import MobileBy
 
 from testappniumpo20210704.po.base_page import BasePage
